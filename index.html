@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Dropdown Selector</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>Dropdown Selector</h1>
+  <div class="container">
+    <label for="oreSelector">Select an Ore:</label>
+    <select id="oreSelector" onchange="handleSelectionChange()"></select>
+    <div class="output">
+      <h3>Selected Ore Details:</h3>
+      <p><span id="refinedMaterialOutput"></span></p>
+      <p><span id="quantityOutput"></span></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

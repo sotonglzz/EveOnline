@@ -1,0 +1,16 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+.input-section {
+  margin: 20px 0;
+}
+
+#refined-output {
+  margin-top: 30px;
+}
