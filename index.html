@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Dropdown Selector</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Ore Refining Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <h1>Dropdown Selector</h1>
-  <div class="container">
-    <label for="oreSelector">Select an Ore:</label>
-    <select id="oreSelector" onchange="handleSelectionChange()"></select>
-    <div class="output">
-      <h3>Selected Ore Details:</h3>
-      <p><span id="refinedMaterialOutput"></span></p>
-      <p><span id="quantityOutput"></span></p>
-    </div>
+  <h1>Ore Refining Calculator</h1>
+  <div id="input-section">
+    <label for="ore-select">Select Ore:</label>
+    <select id="ore-select" onchange="populateMaterials()">
+      <option value="">Select an ore...</option>
+    </select>
+  </div>
+  <div id="materials-section">
+    <label for="material-select">Select Material:</label>
+    <select id="material-select" onchange="calculateOutput()">
+      <option value="">Select a material...</option>
+    </select>
+    <label for="quantity-input">Quantity:</label>
+    <input type="number" id="quantity-input" min="0" value="0" onchange="calculateOutput()">
+  </div>
+  <div id="output-section">
+    <h3>Output:</h3>
+    <p id="output-value"></p>
   </div>
   <script src="script.js"></script>
 </body>

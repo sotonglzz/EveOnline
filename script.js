@@ -1,85 +1,83 @@
-// Function to fetch and parse the CSV data
-function fetchCSVData(url, callback) {
-  $.ajax({
-    url: url,
-    type: 'GET',
-    dataType: 'text',
-    success: function(csvString) {
-      var lines = csvString.split('\n');
-      var headers = lines[0].split(',');
-      var data = [];
+var oresUrl = "ores.csv";
+var materialsUrl = "materials.csv";
 
-      for (var i = 1; i < lines.length; i++) {
-        var values = lines[i].split(',');
+var oreSelect = document.getElementById("ore-select");
+var materialSelect = document.getElementById("material-select");
+var quantityInput = document.getElementById("quantity-input");
+var outputValue = document.getElementById("output-value");
 
-        if (values.length === headers.length) {
-          var item = {};
-          for (var j = 0; j < headers.length; j++) {
-            item[headers[j]] = values[j];
-          }
-          data.push(item);
-        }
+function loadCSV(url) {
+  return new Promise(function(resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        resolve(xhr.responseText);
+      } else {
+        reject(Error(xhr.statusText));
       }
-
-      callback(null, data);
-    },
-    error: function(xhr, status, error) {
-      callback(new Error('Error fetching CSV data: ' + error));
-    }
+    };
+    xhr.onerror = function() {
+      reject(Error("Network Error"));
+    };
+    xhr.open("GET", url);
+    xhr.send();
   });
 }
 
-// Function to populate the ore dropdown options
-function populateOreDropdown() {
-  // Fetch and parse the CSV data
-  fetchCSVData('ores.csv', function(error, data) {
-    if (error) {
-      console.error('Error fetching CSV data:', error);
-      return;
-    }
-
-    // Get the ore selector dropdown element
-    var oreSelector = document.getElementById('oreSelector');
-
-    // Create and append option elements for each ore
-    for (var i = 0; i < data.length; i++) {
-      var option = document.createElement('option');
-      option.value = data[i].Ore;
-      option.textContent = data[i].Ore;
-      oreSelector.appendChild(option);
-    }
+function populateDropdown(data, selectElement) {
+  var options = data.split("\n");
+  options.shift(); // Remove header row
+  options.forEach(function(option) {
+    var parts = option.split(",");
+    var value = parts[0].trim();
+    var label = parts[1].trim();
+    var optionElement = document.createElement("option");
+    optionElement.value = label;
+    optionElement.textContent = value;
+    selectElement.appendChild(optionElement);
   });
 }
 
-// Function to handle the selection change event
-function handleSelectionChange() {
-  // Get the selected ore
-  var oreSelector = document.getElementById('oreSelector');
-  var selectedOre = oreSelector.options[oreSelector.selectedIndex].value;
-
-  // Fetch and parse the CSV data
-  fetchCSVData('output.csv', function(error, data) {
-    if (error) {
-      console.error('Error fetching CSV data:', error);
-      return;
-    }
-
-    // Find the corresponding item in the data
-    var selectedData;
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].Ore === selectedOre) {
-        selectedData = data[i];
-        break;
-      }
-    }
-
-    // Display the refined material and quantity
-    var refinedMaterialOutput = document.getElementById('refinedMaterialOutput');
-    var quantityOutput = document.getElementById('quantityOutput');
-    refinedMaterialOutput.textContent = selectedData.refinedMaterialOutput;
-    quantityOutput.textContent = selectedData.Quantity;
-  });
+function populateOres() {
+  loadCSV(oresUrl)
+    .then(function(response) {
+      populateDropdown(response, oreSelect);
+    })
+    .catch(function(error) {
+      console.log("Error loading ores:", error);
+    });
 }
 
-// Populate the ore dropdown options
-populateOreDropdown();
+function populateMaterials() {
+  var selectedOre = oreSelect.value;
+  if (selectedOre) {
+    loadCSV(materialsUrl)
+      .then(function(response) {
+        var filteredData = response.split("\n").filter(function(row) {
+          return row.startsWith(selectedOre);
+        });
+        populateDropdown(filteredData.join("\n"), materialSelect);
+      })
+      .catch(function(error) {
+        console.log("Error loading materials:", error);
+      });
+  } else {
+    materialSelect.innerHTML = '<option value="">Select an ore first...</option>';
+    outputValue.textContent = "";
+  }
+}
+
+function calculateOutput() {
+  var selectedMaterial = materialSelect.value;
+  var quantity = parseInt(quantityInput.value);
+  if (selectedMaterial && quantity > 0) {
+    var output = quantity * 3.15;
+    outputValue.textContent = selectedMaterial + ": " + output.toFixed(2);
+  } else {
+    outputValue.textContent = "";
+  }
+}
+
+window.onload = function() {
+  populateOres();
+};

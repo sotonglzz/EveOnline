@@ -1,63 +1,48 @@
-Ore
-Veldspar
-Concentrated Veldspar
-Dense Veldspar
-Stable Veldspar
-Scordite
-Condensed Scordite
-Massive Scordite
-Glossy Scordite
-Pyroxeres
-Solid Pyroxeres
-Viscous Pyroxeres
-Opulent Pyroxeres
-Plagioclase
-Azure Plagioclase
-Rich Plagioclase
-Sparkling Plagioclase
-Omber
-Silvery Omber
-Golden Omber
-Platinoid Omber
-Kernite
-Luminous Kernite
-Fiery Kernite
-Resplendent Kernite
-Jaspet
-Pure Jaspet
-Pristine Jaspet
-Immaculate Jaspet
-Hemorphite
-Vivid Hemorphite
-Radiant Hemorphite
-Scintillating Hemorphite
-Hedbergite
-Vitric Hedbergite
-Glazed Hedbergite
-Lustrous Hedbergite
-Dark Ochre
-Onyx Ochre
-Obsidian Ochre
-Gneiss
-Iridescent Gneiss
-Prismatic Gneiss
-Brilliant Gneiss
-Spodumain
-Bright Spodumain
-Gleaming Spodumain
-Dazzling Spodumain
-Crokite
-Sharp Crokite
-Crystalline Crokite
-Pellucid Crokite
-Bistot
-Triclinic Bistot
-Monoclinic Bistot
-Cubic Bistot
-Arkonor
-Crimson Arkonor
-Prime Arkonor
-Flawless Arkonor
-Mercoxit
-Magma Mercoxit
-Vitreous Mercoxit
+Ore,Refined Material
+Veldspar,Tritanium
+Concentrated Veldspar (+5%),Tritanium
+Dense Veldspar (+10%),Tritanium
+Stable Veldspar (+15%),Tritanium
+Scordite,Tritanium,Pyerite
+Condensed Scordite (+5%),Tritanium,Pyerite
+Massive Scordite (+10%),Tritanium,Pyerite
+Glossy Scordite (+15%),Tritanium,Pyerite
+Pyroxeres,Tritanium,Pyerite,Mexallon
+Solid Pyroxeres (+5%),Tritanium,Pyerite,Mexallon
+Viscous Pyroxeres (+10%),Tritanium,Pyerite,Mexallon
+Opulent Pyroxeres (+15%),Tritanium,Pyerite,Mexallon
+Plagioclase,Tritanium,Pyerite,Mexallon
+Azure Plagioclase (+5%),Tritanium,Pyerite,Mexallon
+Rich Plagioclase (+10%),Tritanium,Pyerite,Mexallon
+Sparkling Plagioclase (+15%),Tritanium,Pyerite,Mexallon
+Omber,Tritanium,Pyerite
+Silvery Omber (+5%),Tritanium,Pyerite
+Golden Omber (+10%),Tritanium,Pyerite
+Platinoid Omber (+15%),Tritanium,Pyerite
+Kernite,Tritanium,Pyerite
+Luminous Kernite (+5%),Tritanium,Pyerite
+Fiery Kernite (+10%),Tritanium,Pyerite
+Resplendent Kernite (+15%),Tritanium,Pyerite
+Jaspet,Tritanium,Pyerite,Mexallon
+Pure Jaspet (+5%),Tritanium,Pyerite,Mexallon
+Pristine Jaspet (+10%),Tritanium,Pyerite,Mexallon
+Immaculate Jaspet (+15%),Tritanium,Pyerite,Mexallon
+Hemorphite,Tritanium,Isogen,Nocxium
+Vivid Hemorphite (+5%),Tritanium,Isogen,Nocxium
+Radiant Hemorphite (+10%),Tritanium,Isogen,Nocxium
+Scintillating Hemorphite (+15%),Tritanium,Isogen,Nocxium
+Hedbergite,Isogen,Nocxium,Zydrine
+Vitric Hedbergite (+5%),Isogen,Nocxium,Zydrine
+Glazed Hedbergite (+10%),Isogen,Nocxium,Zydrine
+Lustrous Hedbergite (+15%),Isogen,Nocxium,Zydrine
+Dark Ochre,Isogen,Nocxium,Zydrine
+Onyx Ochre (+5%),Isogen,Nocxium,Zydrine
+Obsidian Ochre (+10%),Isogen,Nocxium,Zydrine
+Jet Ochre (+15%),Isogen,Nocxium,Zydrine
+Gneiss,Mexallon,Isogen
+Iridescent Gneiss (+5%),Mexallon,Isogen
+Prismatic Gneiss (+10%),Mexallon,Isogen
+Brilliant Gneiss (+15%),Mexallon,Isogen
+Spodumain,Spodumain,Pyerite,Zydrine
+Bright Spodumain (+5%),Spodumain,Pyerite,Zydrine
+Gleaming Spodumain,Spodumain
